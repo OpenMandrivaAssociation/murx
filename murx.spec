@@ -2,14 +2,16 @@
 %define version 0.7.0
 %define release %mkrel 1
 
+%define tarballver %(echo %version | sed -e 's|\\\.|_|g')
+
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Summary: Filters e-mail, gets rid of spam
 License: GPL
 Group: Networking/Mail
-Source: %{name}-%{version}.tar.gz
-Buildrequires: byacc bison flex libpcre0
+Source: http://jaist.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{tarballver}.tar.gz
+Buildrequires: byacc bison flex pcre-devel
 Buildroot: %{_tmppath}/%{name}-buildroot
 URL: http://murx.sourceforge.net/
 
@@ -29,18 +31,14 @@ Latest MuRX has been built with support for perl style regular expressions:
 	"--with-pcre"
 
 %prep
-
 %setup -q
 
 %build
-
-%configure --with-pcre
-
+%configure2_5x --with-pcre
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %makeinstall
 
 %find_lang %name
@@ -54,8 +52,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/codingrules.txt doc/specification_v1.txt
 %doc examples/murxrc
 %doc contrib/mf2murxrc contrib/README.files contrib/wrapper_murx.bash
-
 %{_bindir}/*
-%{_datadir}/locale/*/LC_MESSAGES/murx.mo
-%{_mandir}/man1/*
-%{_mandir}/man5/*
+%{_mandir}/man?/*
