@@ -1,5 +1,5 @@
 %define name murx
-%define version 0.7.0
+%define version 0.7.1
 %define release %mkrel 1
 
 %define tarballver %(echo %version | sed -e 's|\\\.|_|g')
@@ -8,11 +8,11 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Summary: Filters e-mail, gets rid of spam
-License: GPL
+License: GPLv2
 Group: Networking/Mail
 Source: http://jaist.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{tarballver}.tar.gz
 Buildrequires: byacc bison flex pcre-devel gettext-devel openssl-devel
-Buildroot: %{_tmppath}/%{name}-buildroot
+Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://murx.sourceforge.net/
 
 %description
