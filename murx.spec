@@ -13,7 +13,7 @@ Group: Networking/Mail
 Source: http://jaist.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{tarballver}.tar.gz
 Buildrequires: byacc bison flex pcre-devel gettext-devel openssl-devel
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-URL: http://murx.sourceforge.net/
+URL: https://murx.sourceforge.net/
 
 %description
 MuRX - Mailfilter Using Regular eXpressions
