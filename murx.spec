@@ -11,6 +11,11 @@ Summary: Filters e-mail, gets rid of spam
 License: GPLv2
 Group: Networking/Mail
 Source: http://jaist.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{tarballver}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires: byacc bison flex pcre-devel gettext-devel openssl-devel
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: https://murx.sourceforge.net/
